@@ -18,17 +18,21 @@ Clone the repository:
 ```bash
 git clone https://github.com/pathusena/ExpenseTrackerGoLanguage.git
 cd your-api
+```
 
 Install the required dependencies:
 
+```bash
 go get -u github.com/gorilla/mux
 go get -u gorm.io/gorm
 go get -u gorm.io/driver/sqlserver
+```
 
-Database Configuration
+### Database Configuration
 
 This API uses gorm for database interactions and the sqlserver driver for SQL Server. You need to configure the database connection in your project. Edit the sqlserverDB.go file and replace "sqlserver://<User>:<Password>@<Server>?database=<Database>" with your actual SQL Server connection string:
 
+``` go
 package sqlserver
 
 import (
@@ -51,53 +55,61 @@ func Init() {
 		fmt.Println(err.Error())
 	}
 }
+```
 
-Running the API
+### Running the API
 
 Run the API using the following command:
 
+```bash
 go run main.go
+```
 
 The API will start and be available at http://localhost:8080.
 
-Expense Struct
+### Expense Struct
 
 The API uses the following Expense struct for managing expenses:
 
+``` go
 type Expense struct {
     Id          uint
     Description string
     Amount      float64
     Date        string
 }
+```
 
-API Endpoints
+## API Endpoints
 
-Get All Expenses
-URL: /expenses
-Method: GET
-Description: Retrieve a list of all expenses.
+### Get All Expenses
+URL: /expenses  
+Method: GET  
+Description: Retrieve a list of all expenses.  
 
-Get an Expense
-URL: /expense/{id}
-Method: GET
-Description: Retrieve details of a specific expense by ID.
+### Get an Expense
+URL: /expense/{id}  
+Method: GET  
+Description: Retrieve details of a specific expense by ID.  
 
-Delete an Expense
-URL: /expense/{id}
-Method: DELETE
-Description: Delete a specific expense by ID.
+### Delete an Expense
+URL: /expense/{id}  
+Method: DELETE  
+Description: Delete a specific expense by ID.  
 
-Create an Expense
-URL: /expense
-Method: POST
-Description: Create a new expense.
+### Create an Expense
+URL: /expense  
+Method: POST  
+Description: Create a new expense.  
 
-License
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-Acknowledgments
+## Acknowledgments
 
-Gorilla Mux - Router and dispatcher for Go.
-gorm - The Go programming language ORM.
-sqlserver - GORM SQL Server driver.
+Gorilla Mux - Router and dispatcher for Go.  
+gorm - The Go programming language ORM.  
+sqlserver - GORM SQL Server driver.  
+
+### Author
+Pathum Senaratna
